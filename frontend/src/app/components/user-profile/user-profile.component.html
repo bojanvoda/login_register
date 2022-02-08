@@ -1,0 +1,49 @@
+<!-- <div class="container">
+  <div class="row">
+      <div class="inner-main">
+          <h2 class="mb-4">User Profile</h2>
+          <p><strong>Name:</strong> {{this.currentUser.name}}</p>
+          <p><strong>Email:</strong> {{this.currentUser.email}}</p>
+      </div>
+  </div>
+</div>
+-->
+
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <header class="jumbotron">
+    <h3>
+      <p><strong>Name:</strong> {{currentUser.name}}</p>
+    </h3>
+  </header>
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+  </p>
+  <p>
+    <strong>Token:</strong>
+    {{ this.user }}
+  </p>
+</div>
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of users">
+          <td>{{this.user.email}}</td>
+          <td>{{this.user.first_name}}</td>
+          <td>{{this.user.last_name}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
+
+
